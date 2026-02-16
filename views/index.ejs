@@ -1,0 +1,476 @@
+<%- include('partials/header') %>
+
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-clinic-blue py-6 px-8">
+            <h2 class="text-3xl font-bold text-white">Homoeopathic Case Record Form (Adult)</h2>
+            <p class="text-white opacity-90 mt-2">Please fill out all details carefully to assist Dr. Jinita Galaiya in
+                your analysis.</p>
+        </div>
+
+        <form action="/submit" method="POST" enctype="multipart/form-data" class="p-8 space-y-8">
+
+            <!-- 1. Personal Information -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">1. Personal Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Full Name *</label>
+                        <input type="text" name="fullName" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Email Address *</label>
+                        <input type="email" name="email" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Phone Number *</label>
+                        <input type="tel" name="phone" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Date of Birth *</label>
+                        <input type="date" name="dob" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Gender *</label>
+                        <select name="gender" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Marital Status *</label>
+                        <select name="maritalStatus" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Occupation *</label>
+                        <input type="text" name="occupation" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Food Preference *</label>
+                        <select name="foodPreference" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Eggetarian">Eggetarian</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-black font-semibold mb-1">Address *</label>
+                        <textarea name="address" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Present Illness -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">2. Present Illness</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Chief Complaint *</label>
+                        <p class="text-sm text-gray-600 mb-1">Main problem or symptoms.</p>
+                        <textarea name="chiefComplaint" required rows="3"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-black font-semibold mb-1">Duration of Current Illness *</label>
+                            <input type="text" name="durationOfIllness" required placeholder="e.g. 3 weeks"
+                                class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-black font-semibold mb-1">Severity of Symptoms *</label>
+                            <select name="severity" required
+                                class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                                <option value="">Select...</option>
+                                <option value="Mild">Mild</option>
+                                <option value="Moderate">Moderate</option>
+                                <option value="Severe">Severe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Symptom Description *</label>
+                        <p class="text-sm text-gray-600 mb-1">Type, location, intensity, quality of pain/discomfort.</p>
+                        <textarea name="symptomDescription" required rows="3"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Aggravating/Relieving Factors *</label>
+                        <p class="text-sm text-gray-600 mb-1">What makes it worse or better?</p>
+                        <textarea name="aggravatingFactors" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Previous Treatments or Medications *</label>
+                        <textarea name="previousTreatments" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Past and Family History -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">3. Past and Family History</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Past Medical Conditions *</label>
+                        <textarea name="pastMedicalHistory" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Allergies *</label>
+                        <textarea name="allergies" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <label class="block text-black font-semibold mb-2">Family Medical History *</label>
+                        <table class="min-w-full border-collapse border border-gray-300 text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="border border-gray-300 p-2">Condition</th>
+                                    <th class="border border-gray-300 p-2">Patient</th>
+                                    <th class="border border-gray-300 p-2">Father</th>
+                                    <th class="border border-gray-300 p-2">Mother</th>
+                                    <th class="border border-gray-300 p-2">Sibling(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% const conditions=['Diabetes', 'Hypertension' , 'Heart Disease' , 'Cancer' , 'Asthma'
+                                    , 'Tuberculosis' , 'Epilepsy' , 'Mental Illness' , 'Other' ]; %>
+                                    <% conditions.forEach(cond=> { %>
+                                        <tr>
+                                            <td class="border border-gray-300 p-2 font-medium">
+                                                <%= cond %>
+                                            </td>
+                                            <td class="border border-gray-300 p-2 text-center"><input type="checkbox"
+                                                    name="familyHistory[<%= cond %>][Patient]"></td>
+                                            <td class="border border-gray-300 p-2 text-center"><input type="checkbox"
+                                                    name="familyHistory[<%= cond %>][Father]"></td>
+                                            <td class="border border-gray-300 p-2 text-center"><input type="checkbox"
+                                                    name="familyHistory[<%= cond %>][Mother]"></td>
+                                            <td class="border border-gray-300 p-2 text-center"><input type="checkbox"
+                                                    name="familyHistory[<%= cond %>][Siblings]"></td>
+                                        </tr>
+                                        <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Personal History -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">4. Personal History</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Sleep Pattern *</label>
+                        <select name="sleepPattern" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Sound">Sound (No issues)</option>
+                            <option value="Disturbed">Disturbed</option>
+                            <option value="Insomnia">Insomnia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Appetite *</label>
+                        <select name="appetite" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Increased">Increased</option>
+                            <option value="Decreased">Decreased</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Thirst and Water Intake *</label>
+                        <input type="text" name="thirstAndWater" required placeholder="e.g. Excessive, 3 liters/day"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Bowel Habits *</label>
+                        <select name="bowelHabits" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Constipation">Constipation</option>
+                            <option value="Loose">Frequent/Loose</option>
+                            <option value="Alternating">Alternating</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Urination *</label>
+                        <select name="urination" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Normal">Normal frequency</option>
+                            <option value="Frequent">Frequent</option>
+                            <option value="Infrequent">Infrequent</option>
+                            <option value="Painful">Painful</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Thermal Preference *</label>
+                        <select name="thermalPreference" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Warm">Prefers Warm Weather</option>
+                            <option value="Cold">Prefers Cold Weather</option>
+                            <option value="None">No Strong Preference</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Dietary Habits *</label>
+                        <select name="dietaryHabits" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="">Select...</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Eggetarian">Eggetarian</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Exercise Routine *</label>
+                        <input type="text" name="exerciseRoutine" required placeholder="Type and frequency"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Tobacco Use *</label>
+                        <select name="tobaccoUse" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="None">None</option>
+                            <option value="Smoker">Smoker</option>
+                            <option value="Chewing">Chewing Tobacco</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Cigarettes per day</label>
+                        <input type="text" name="cigarettesPerDay" placeholder="If smoker"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Alcohol Use *</label>
+                        <select name="alcoholUse" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                            <option value="None">None</option>
+                            <option value="Social">Social Drinker</option>
+                            <option value="Regular">Regular Drinker</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Sexual & Reproductive Health -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">5. Sexual & Reproductive Health</h3>
+                <p class="text-sm text-gray-500 mb-4 italic">(Fill if applicable)</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Menstrual History (Females)</label>
+                        <textarea name="menstrualHistory" rows="2"
+                            placeholder="Age of menarche, regularity, flow, pain..."
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Leukorrhea</label>
+                        <input type="text" name="leukorrhea" placeholder="Frequency, burning, itching, odor, color"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Menopause Details</label>
+                        <textarea name="menopauseDetails" rows="2" placeholder="Age at menopause, symptoms..."
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Mind & Emotions -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">6. Mind & Emotions</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Emotional State *</label>
+                        <p class="text-sm text-gray-600 mb-1">Current mood, stress, anxiety, anger, fears.</p>
+                        <textarea name="emotionalState" required rows="3"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Major Life Stressors *</label>
+                        <textarea name="majorLifeStressors" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Sleep Quality & Dreams</label>
+                        <textarea name="sleepQualityDetails" placeholder="Detail on sleep disturbances..."
+                            class="w-full border-2 border-gray-300 rounded p-2 mb-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                        <textarea name="dreamsNightmares" required placeholder="Nightmares or unusual dreams *"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Phobias/Fears *</label>
+                        <textarea name="phobiasFears" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Past Psychiatric History *</label>
+                        <textarea name="pastPsychiatricHistory" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Self Description *</label>
+                        <p class="text-sm text-gray-600 mb-1">How would you describe yourself? (e.g. Angry, sensitive,
+                            workaholic, perfectionist...)</p>
+                        <textarea name="selfDescription" required rows="3"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Childhood History -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">7. Childhood History</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Childhood Illnesses *</label>
+                        <textarea name="childhoodIllnesses" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Childhood Development *</label>
+                        <textarea name="childhoodDevelopment" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-black font-semibold mb-1">Vaccinations *</label>
+                            <select name="vaccinations" required
+                                class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                                <option value="">Select...</option>
+                                <option value="Up-to-date">Up-to-date</option>
+                                <option value="Partial">Partial</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-black font-semibold mb-1">Bedwetting (History) *</label>
+                            <select name="bedwetting" required
+                                class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Traumas or Accidents *</label>
+                        <textarea name="childhoodTraumas" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Temperament as Child *</label>
+                        <textarea name="childhoodTemperament" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Affected Body Parts -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">8. Affected Body Parts</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-2">Current Affected Areas *</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <% const bodyParts=['Head/Brain', 'Eyes' , 'Ears' , 'Nose/Throat' , 'Mouth/Teeth' , 'Neck'
+                                , 'Chest/Heart' , 'Lungs/Respiratory' , 'Abdomen' , 'Skin' , 'Genitals/Urology'
+                                , 'Upper Limbs' , 'Lower Limbs' , 'Back/Spine' , 'Other' ]; %>
+                                <% bodyParts.forEach(part=> { %>
+                                    <label class="flex items-center space-x-2">
+                                        <input type="checkbox" name="affectedAreas[]" value="<%= part %>"
+                                            class="form-checkbox text-clinic-blue">
+                                        <span>
+                                            <%= part %>
+                                        </span>
+                                    </label>
+                                    <% }); %>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Location of Pain or Lesions *</label>
+                        <input type="text" name="painLocation" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Additional Comments on Affected Areas
+                            *</label>
+                        <textarea name="bodyPartComments" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Upload Relevant Images/Reports (Max
+                            5)</label>
+                        <input type="file" name="reportFiles" multiple
+                            class="w-full p-2 border border-gray-300 rounded bg-gray-50">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Additional Information -->
+            <section>
+                <h3 class="text-xl font-bold text-clinic-green mb-4 border-b pb-2">9. Additional Information</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Other Symptoms/Complaints *</label>
+                        <textarea name="otherSymptoms" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Current Medications *</label>
+                        <textarea name="currentMedications" required rows="2"
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-black font-semibold mb-1">Referring Physician/Source *</label>
+                        <input type="text" name="referringPhysician" required
+                            class="w-full border-2 border-gray-300 rounded p-2 focus:border-clinic-blue focus:outline-none">
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded border border-blue-200">
+                        <label class="flex items-start space-x-3">
+                            <input type="checkbox" name="consent" required
+                                class="mt-1 form-checkbox h-5 w-5 text-clinic-green">
+                            <span class="text-sm text-gray-800">I hereby confirm that the information provided is
+                                complete and accurate to the best of my knowledge. I consent to homeopathic
+                                treatment.</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="pt-6">
+                <button type="submit"
+                    class="w-full bg-clinic-green hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg text-lg shadow-md transition duration-200 transform hover:scale-[1.01]">
+                    Submit Complete Case Record
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>

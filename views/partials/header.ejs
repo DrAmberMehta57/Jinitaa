@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Home' %> | Dr. Jinnit's Clinic
+    </title>
+
+    <!-- PWA Manifest & Icons -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2F855A">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063176.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Tailwind CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-black flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Caduceus Symbol -->
+                <span class="text-4xl text-clinic-green">⚕</span>
+                <div>
+                    <h1 class="text-2xl font-bold text-clinic-blue">Dr. Jinnit's Clinic</h1>
+                    <p class="text-sm text-gray-600">Homeopathic Care Center</p>
+                </div>
+            </div>
+            <nav>
+                <% if (typeof title !=='undefined' && title.includes('Admin')) { %>
+                    <!-- Admin Nav -->
+                    <a href="/admin/dashboard"
+                        class="text-clinic-blue hover:text-clinic-green font-semibold mr-4">Dashboard</a>
+                    <a href="/admin/logout" class="text-red-600 hover:text-red-800 font-semibold">Logout</a>
+                    <% } else { %>
+                        <!-- Public Nav -->
+                        <a href="/" class="text-clinic-blue hover:text-clinic-green font-semibold">Patient Intake</a>
+                        <% } %>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">

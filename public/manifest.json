@@ -1,0 +1,21 @@
+{
+    "name": "Dr. Jinnit's Clinic",
+    "short_name": "Dr. Jinnit",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2F855A",
+    "description": "Patient Management System for Dr. Jinnit's Clinic",
+    "icons": [
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/3063/3063176.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/3063/3063176.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
